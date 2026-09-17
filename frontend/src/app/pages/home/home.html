@@ -1,0 +1,116 @@
+<ui5-shellbar primary-title="Gestão de Usuários">
+</ui5-shellbar>
+
+<div class="page-container">
+
+  <ui5-title level="H2">
+    Usuários
+  </ui5-title>
+
+  <div class="action-bar">
+    <ui5-button design="Emphasized" (click)="adicionarUsuario()">
+
+      Adicionar Usuário
+
+    </ui5-button>
+  </div>
+
+  @if (carregando) {
+
+  <ui5-busy-indicator active>
+  </ui5-busy-indicator>
+
+  }
+
+  @if (!carregando && usuarios.length > 0) {
+
+  <ui5-list>
+
+    @for (usuario of usuarios; track usuario.id) {
+
+    <ui5-li>
+
+      <div class="usuario-item">
+
+        <span>
+          ID: {{ usuario.id }}
+        </span>
+
+        <span class="usuario-nome">
+          {{ usuario.nome }}
+        </span>
+
+        <span class="usuario-email">
+          {{ usuario.email }}
+        </span>
+
+      </div>
+
+    </ui5-li>
+
+    }
+
+  </ui5-list>
+
+  }
+
+</div>
+
+@if (dialogAberto) {
+
+@if (dialogAberto) {
+
+  <ui5-dialog
+    header-text="Novo Usuário"
+    open>
+
+    <div style="padding: 1rem;">
+
+      <ui5-label>
+        Nome
+      </ui5-label>
+
+      <ui5-input
+        [value]="nomeUsuario"
+        (input)="nomeUsuario = $any($event.target).value">
+      </ui5-input>
+
+      <br><br>
+
+      <ui5-label>
+        Email
+      </ui5-label>
+
+      <ui5-input
+        [value]="emailUsuario"
+        (input)="emailUsuario = $any($event.target).value">
+      </ui5-input>
+
+    </div>
+
+    <div slot="footer">
+
+      <ui5-button
+        design="Transparent"
+        (click)="fecharDialog()">
+
+        Cancelar
+
+      </ui5-button>
+
+      <ui5-button
+        design="Emphasized"
+        (click)="salvarUsuario(nomeUsuario, emailUsuario)">
+
+        Salvar
+
+      </ui5-button>
+
+    </div>
+
+  </ui5-dialog>
+
+}
+``
+
+}

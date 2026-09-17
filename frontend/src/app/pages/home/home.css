@@ -1,0 +1,28 @@
+.page-container {
+  padding: 1rem 2rem;
+}
+
+.usuario-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  padding: 1rem;
+}
+
+.usuario-nome {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.usuario-email {
+  color: #6a6d70;
+}
+
+.action-bar {
+  margin: 1rem 0;
+}
+
+ui5-list {
+  margin-top: 1rem;
+}
